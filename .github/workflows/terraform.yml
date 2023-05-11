@@ -84,15 +84,7 @@ jobs:
     # Checks that all Terraform configuration files adhere to a canonical format
  #   - name: Terraform Format
 #      run: terraform fmt -check
-    
-    # Generates an execution plan for Terraform
-    - name: Terraform Destroy
-      env:
-        DATABRICKS_HOST: ${{secrets.DB_DEV_HOST}}
-        DATABRICKS_TOKEN: ${{secrets.DB_DEV_PAT}}   
-      
-      if: github.ref == 'refs/heads/main' && github.event_name == 'push'                     
-      run: terraform destroy   
+       
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
