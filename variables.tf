@@ -1,7 +1,7 @@
 variable "notebook_subdirectory" {
   description = "A name for the subdirectory to store the notebook."
   type        = string
-  default     = "Terraform"
+  default     = "Deployed by Terraform"
 }
 
 variable "notebook_filename" {
