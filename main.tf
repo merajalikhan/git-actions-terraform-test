@@ -4,6 +4,10 @@ terraform {
       source = "databricks/databricks"
     }
   }
+  provider "databricks" {}
+    
+  data "databricks_current_user" "logged_in_user" {}
+  
   backend "remote" {
          # The name of your Terraform Cloud organization.
          organization = "mk-test-organisation"
@@ -14,8 +18,4 @@ terraform {
          }
        }
 }
-provider "databricks" {}
-    
-data "databricks_current_user" "logged_in_user" {
-    
-}
+
