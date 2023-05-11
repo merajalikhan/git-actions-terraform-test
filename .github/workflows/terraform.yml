@@ -90,6 +90,8 @@ jobs:
       env:
         DATABRICKS_HOST: ${{secrets.DB_DEV_HOST}}
         DATABRICKS_TOKEN: ${{secrets.DB_DEV_PAT}}   
+      
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'                     
       run: terraform plan -input=false
 
       # On push to "main", build or change infrastructure according to Terraform configuration files
@@ -99,10 +101,6 @@ jobs:
       env:
         DATABRICKS_HOST: ${{secrets.DB_DEV_HOST}}
         DATABRICKS_TOKEN: ${{secrets.DB_DEV_PAT}}
-      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      run: |
-        echo "mk test 122333"
-        echo "${{ github.event_name}}"
-        echo "${{github.ref}}" 
       
-      #run: terraform apply -auto-approve -input=false 
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'                     
+      run: terraform apply -auto-approve 
