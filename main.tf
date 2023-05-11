@@ -9,4 +9,3 @@ provider "databricks" {}
     
 data "databricks_current_user" "logged_in_user" {}
 
-
