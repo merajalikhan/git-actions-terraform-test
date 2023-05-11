@@ -18,18 +18,6 @@ variable "notebooks_folder" {
   description = "The folders for the notebooks."
   type        = string
 }
-
-variable "databricks_host" {
-  description = "Databricks host name (workspace)."
-  type        = string
-}
-
-
-variable "pa_token" {
-  description = "The databricks PAT."
-  type        = string
-}
-
 variable "cluster_name"{
     type        = string
 }
