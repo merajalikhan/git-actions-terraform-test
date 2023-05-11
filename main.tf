@@ -4,8 +4,9 @@ terraform {
       source = "databricks/databricks"
     }
   }
-  provider "databricks" {}
-    
-  data "databricks_current_user" "logged_in_user" {}
 }
+provider "databricks" {}
+    
+data "databricks_current_user" "logged_in_user" {}
+
 
