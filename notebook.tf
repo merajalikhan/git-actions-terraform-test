@@ -18,9 +18,9 @@ output "notebook_url" {
 
 
 
-resource "databricks_notebook" "nbx" {
-  for_each = fileset(path.module, "Notebooks/*")
-  source   = "${each.value}"
-  path     = "Shared/TestProjects/${each.value}"
-  #language = var.notebook_language    
+resource "databricks_notebook" "all_notebooks" {
+  for_each = fileset("${path.module}/Notebooks", "*") 
+  source   = "Notebooks/${each.value}"
+  path     = "/Shared/TestProjects/${each.value}"
+  language = var.notebook_language    
 }
