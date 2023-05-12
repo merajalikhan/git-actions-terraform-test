@@ -4,6 +4,8 @@ terraform {
       source = "databricks/databricks"
     }
   }
+
+  #specifies which Terraform Cloud workspaces to use for  accessing shared state and any environment variables.
   cloud {
     organization = "mk-test-organisation"
 
@@ -12,6 +14,7 @@ terraform {
     }
   }
 }
+
 provider "databricks" {
   
 }
