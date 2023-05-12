@@ -1,6 +1,6 @@
 
 
-cluster_name = "Shared Autoscaling"
+#cluster_name = "Shared Autoscaling"
 
 notebook_subdirectory = "Deployed by Terraform"
 notebook_filename     = "mk-notebook.py"
