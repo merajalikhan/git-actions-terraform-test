@@ -18,9 +18,12 @@ variable "notebooks_folder" {
   description = "The folders for the notebooks."
   type        = string
 }
-variable "cluster_name"{
-    type        = string
-}
+#variable "cluster_name"{
+#    type        = string
+#}
+
+
+
 
 
 
