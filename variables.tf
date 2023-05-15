@@ -21,9 +21,30 @@ variable "notebooks_folder" {
 #variable "cluster_name"{
 #    type        = string
 #}
+variable "notification_email" {
+  description = "The email to sent notification to."
+  type        = string
+}
+variable "job_name" {
+  description = "Job to orchestrate notebooks"
+  type        = string
+  default     = "Demo Job"
+}
 
+variable existing_dev_cluster_id{
+  description = "current cluster id"
+  type = string
+}
 
+variable existing_qa_cluster_id{
+  description = "current qa cluster id"
+  type = string
+}
 
+variable cluster_name{
+  description = "new cluster name"
+  type = string
+}
 
 
 
