@@ -54,7 +54,7 @@ permissions:
 
 jobs:  
   terraform-dev:
-    name: 'Deploy Databricks Notebooks and Jobs'
+    name: 'DEV: Deploy Databricks Notebooks and Jobs'
     runs-on: ubuntu-latest
     environment: development
 
@@ -110,7 +110,7 @@ jobs:
       run: terraform apply -auto-approve 
 
   terraform-qa:
-      name: 'Deploy Databricks Notebooks and Jobs'
+      name: 'QA: Deploy Databricks Notebooks and Jobs'
       runs-on: ubuntu-latest
       environment: testing
   
