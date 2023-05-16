@@ -133,8 +133,8 @@ jobs:
       # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
       - name: Terraform Init
         env:
-          DATABRICKS_HOST: ${{secrets.DB_QA_HOST}}
-          DATABRICKS_TOKEN: ${{secrets.DB_QA_PAT}}        
+          DATABRICKS_HOST: ${{secrets.DB_QA1_HOST}}
+          DATABRICKS_TOKEN: ${{secrets.DB_QA1_PAT}}        
         run: terraform init
   
       # Checks that all Terraform configuration files adhere to a canonical format
@@ -145,8 +145,8 @@ jobs:
       # Generates an execution plan for Terraform
       - name: Terraform Plan
         env:
-          DATABRICKS_HOST: ${{secrets.DB_QA_HOST}}
-          DATABRICKS_TOKEN: ${{secrets.DB_QA_PAT}}   
+          DATABRICKS_HOST: ${{secrets.DB_QA1_HOST}}
+          DATABRICKS_TOKEN: ${{secrets.DB_QA1_PAT}}   
         
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'                     
         run: terraform plan -input=false
@@ -156,8 +156,8 @@ jobs:
       - name: Terraform Apply
         
         env:
-          DATABRICKS_HOST: ${{secrets.DB_QA_HOST}}
-          DATABRICKS_TOKEN: ${{secrets.DB_QA_PAT}}
+          DATABRICKS_HOST: ${{secrets.DB_QA1_HOST}}
+          DATABRICKS_TOKEN: ${{secrets.DB_QA1_PAT}}
         
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'                     
         run: terraform apply -auto-approve
