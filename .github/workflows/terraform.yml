@@ -99,20 +99,18 @@ jobs:
       run: |
           export TF_WORKSPACE="dev"
           terraform plan -input=false
-
-      # On push to "main", build or change infrastructure according to Terraform configuration files
-      # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
-    - name: Terraform Apply
-      
-      #env:
-      #  DATABRICKS_HOST: ${{secrets.DB_QA_HOST}}
-      #  DATABRICKS_TOKEN: ${{secrets.DB_QA_PAT}}
-      
+          
     - name: Terraform Plan Status
       if: steps.plan.outcome == 'failure'
       run: exit 1
-
-    - name: Terraform Apply
+      
+      # On push to "main", build or change infrastructure according to Terraform configuration files
+      # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
+    
+    - name: Terraform Apply       
+      #env:
+      #  DATABRICKS_HOST: ${{secrets.DB_QA_HOST}}
+      #  DATABRICKS_TOKEN: ${{secrets.DB_QA_PAT}}    
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       run: |
          export TF_WORKSPACE="dev"
