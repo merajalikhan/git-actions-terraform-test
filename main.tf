@@ -13,7 +13,7 @@ terraform {
 #      name = "learn-terraform-github-action"
 #    }
 #  }
-#}
+}
 
 provider "databricks" {
   
