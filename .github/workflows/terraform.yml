@@ -54,7 +54,7 @@ permissions:
 
 jobs:  
   terraform-dev:
-    name: 'DEV: Deploy Databricks Notebooks and Jobs'
+    name: 'Deploy Databricks Notebooks and Jobs'
     runs-on: ubuntu-latest
     environment: development
 
