@@ -6,14 +6,14 @@ terraform {
   }
 
   #specifies which Terraform Cloud workspaces to use for  accessing shared state and any environment variables.
-  cloud {
-    organization = "mk-test-organisation"
+#  cloud {
+#    organization = "mk-test-organisation"
 
-    workspaces {
-      name = "learn-terraform-github-action"
-    }
-  }
-}
+#    workspaces {
+#      name = "learn-terraform-github-action"
+#    }
+#  }
+#}
 
 provider "databricks" {
   
