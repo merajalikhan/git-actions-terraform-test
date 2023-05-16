@@ -1,7 +1,7 @@
 resource "databricks_job" "this" {
   name = var.job_name
-  existing_cluster_id =  var.existing_dev_cluster_id  #databricks_cluster.this.cluster_id
-  #existing_cluster_id =  data.databricks_cluster.my_cluster.id  
+  #existing_cluster_id =  var.existing_dev_cluster_id  #databricks_cluster.this.cluster_id
+  existing_cluster_id =  data.databricks_cluster.my_cluster.id  
   notebook_task {
     notebook_path = databricks_notebook.nb2.path
   }
