@@ -79,10 +79,10 @@ jobs:
       #env:
       #  DATABRICKS_HOST: ${{secrets.DB_QA_HOST}}
       #  DATABRICKS_TOKEN: ${{secrets.DB_QA_PAT}}        
-      run: 
-        export TF_WORKSPACE="dev"
-        terraform init -input=false
-        terraform workspace show
+      run: |
+          export TF_WORKSPACE="dev"
+          terraform init -input=false
+          terraform workspace show
 
     # Checks that all Terraform configuration files adhere to a canonical format
  #   - name: Terraform Format
