@@ -108,9 +108,15 @@ jobs:
       #  DATABRICKS_HOST: ${{secrets.DB_QA_HOST}}
       #  DATABRICKS_TOKEN: ${{secrets.DB_QA_PAT}}
       
-      if: github.ref == 'refs/heads/main' && github.event_name == 'push'                     
+    - name: Terraform Plan Status
+      if: steps.plan.outcome == 'failure'
+      run: exit 1
+
+    - name: Terraform Apply
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       run: |
-          export TF_WORKSPACE="dev"
-          terraform apply -auto-approve 
+         export TF_WORKSPACE="dev"
+         terraform apply -auto-approve     
+      
       
       
